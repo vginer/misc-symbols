@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo de símbolos</title>
+<style>
+  :root{
+    --bg:#FCEAD8; --fg:#3A2A1E; --muted:#9A836F; --accent:#C2410C;
+    --hover:rgba(194,65,12,.10); --copied:rgba(194,65,12,.22); --line:#EBD5BF;
+    --toast-bg:#3A2A1E; --toast-fg:#FCEAD8; --cell:clamp(56px,12vw,82px);
+    --font-ui:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --font-mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",monospace;
+    --font-glyph:"Cambria Math","STIX Two Math","Latin Modern Math","DejaVu Serif",
+                 "Segoe UI Symbol","Noto Sans Symbols2","Apple Symbols",serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--bg); color:var(--fg); font-family:var(--font-ui);
+    -webkit-font-smoothing:antialiased; line-height:1.4;
+    padding:clamp(1.2rem,4vw,3rem);
+  }
+  .wrap{max-width:880px;margin:0 auto}
+  header{margin:0 0 2.4rem}
+  h1{font-size:clamp(1.65rem,3.85vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin:0 0 .35rem}
+  .sub{color:var(--muted);font-size:1.012rem;margin:0}
+  .sub code{font-family:var(--font-mono);font-size:.85em;color:var(--accent)}
+  .grp{margin:0 0 2.2rem}
+  .eyebrow{
+    display:flex;align-items:center;gap:.55rem;
+    font-family:var(--font-mono);font-size:.792rem;font-weight:600;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .7rem;
+  }
+  .eyebrow .count{
+    color:var(--muted);letter-spacing:.05em;font-weight:500;
+    border:1px solid var(--line);border-radius:999px;padding:.05rem .5rem;font-size:.748rem;
+  }
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill, var(--cell));
+    justify-content:start; gap:2px;
+  }
+  button.g{
+    width:var(--cell); height:var(--cell);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-glyph); font-size:clamp(2.375rem,5.5vw,3.375rem); line-height:1;
+    color:var(--fg); background:none; border:none; padding:0; margin:0;
+    cursor:pointer; border-radius:10px; -webkit-user-select:none; user-select:none;
+  }
+  button.g:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  button.g.copied{background:var(--copied)}
+  @media (prefers-reduced-motion: no-preference){
+    button.g{transition:background .12s ease, transform .12s ease}
+    button.g:hover{background:var(--hover);transform:translateY(-1px)}
+  }
+  @media (prefers-reduced-motion: reduce){ button.g:hover{background:var(--hover)} }
+  footer{color:var(--muted);font-size:.902rem;border-top:1px solid var(--line);
+         padding-top:1rem;margin-top:1.5rem;line-height:1.7}
+  footer a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+  .toast{
+    position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(8px);
+    background:var(--toast-bg);color:var(--toast-fg);padding:.55rem .9rem;border-radius:10px;
+    font-family:var(--font-mono);font-size:.902rem;opacity:0;pointer-events:none;z-index:50;
+    box-shadow:0 6px 20px rgba(0,0,0,.18);transition:opacity .15s ease, transform .15s ease;
+    max-width:90vw;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Catálogo de símbolos</h1>
+    <p class="sub">Haz clic en cualquier símbolo para copiarlo; con Mayús + clic copias su código HTML (p.&nbsp;ej. <code>&amp;rarr;</code>).</p>
+  </header>
+<section class="grp">
+  <div class="eyebrow">Flechas<span class="count">10</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;larr;" data-code="&amp;larr;">←</button><button type="button" class="g" title="&amp;rarr;" data-code="&amp;rarr;">→</button><button type="button" class="g" title="&amp;uarr;" data-code="&amp;uarr;">↑</button><button type="button" class="g" title="&amp;darr;" data-code="&amp;darr;">↓</button><button type="button" class="g" title="&amp;larrhk;" data-code="&amp;larrhk;">↩</button><button type="button" class="g" title="&amp;#8679;" data-code="&amp;#8679;">⇧</button><button type="button" class="g" title="&amp;#8680;" data-code="&amp;#8680;">⇨</button><button type="button" class="g" title="&amp;#10142;" data-code="&amp;#10142;">➞</button><button type="button" class="g" title="&amp;rArr;" data-code="&amp;rArr;">⇒</button><button type="button" class="g" title="&amp;hArr;" data-code="&amp;hArr;">⇔</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Manos y gestos<span class="count">6</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;#9757;" data-code="&amp;#9757;">☝</button><button type="button" class="g" title="&amp;#9759;" data-code="&amp;#9759;">☟</button><button type="button" class="g" title="&amp;#9756;" data-code="&amp;#9756;">☜</button><button type="button" class="g" title="&amp;#9758;" data-code="&amp;#9758;">☞</button><button type="button" class="g" title="&amp;#9996;" data-code="&amp;#9996;">✌</button><button type="button" class="g" title="&amp;#9997;" data-code="&amp;#9997;">✍</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Letras griegas minúsculas<span class="count">26</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;alpha;" data-code="&amp;alpha;">α</button><button type="button" class="g" title="&amp;beta;" data-code="&amp;beta;">β</button><button type="button" class="g" title="&amp;gamma;" data-code="&amp;gamma;">γ</button><button type="button" class="g" title="&amp;delta;" data-code="&amp;delta;">δ</button><button type="button" class="g" title="&amp;epsilon;" data-code="&amp;epsilon;">ε</button><button type="button" class="g" title="&amp;zeta;" data-code="&amp;zeta;">ζ</button><button type="button" class="g" title="&amp;eta;" data-code="&amp;eta;">η</button><button type="button" class="g" title="&amp;theta;" data-code="&amp;theta;">θ</button><button type="button" class="g" title="&amp;iota;" data-code="&amp;iota;">ι</button><button type="button" class="g" title="&amp;kappa;" data-code="&amp;kappa;">κ</button><button type="button" class="g" title="&amp;lambda;" data-code="&amp;lambda;">λ</button><button type="button" class="g" title="&amp;mu;" data-code="&amp;mu;">μ</button><button type="button" class="g" title="&amp;nu;" data-code="&amp;nu;">ν</button><button type="button" class="g" title="&amp;xi;" data-code="&amp;xi;">ξ</button><button type="button" class="g" title="&amp;omicron;" data-code="&amp;omicron;">ο</button><button type="button" class="g" title="&amp;pi;" data-code="&amp;pi;">π</button><button type="button" class="g" title="&amp;rho;" data-code="&amp;rho;">ρ</button><button type="button" class="g" title="&amp;sigma;" data-code="&amp;sigma;">σ</button><button type="button" class="g" title="&amp;sigmaf;" data-code="&amp;sigmaf;">ς</button><button type="button" class="g" title="&amp;tau;" data-code="&amp;tau;">τ</button><button type="button" class="g" title="&amp;upsilon;" data-code="&amp;upsilon;">υ</button><button type="button" class="g" title="&amp;phi;" data-code="&amp;phi;">φ</button><button type="button" class="g" title="&amp;phiv;" data-code="&amp;phiv;">ϕ</button><button type="button" class="g" title="&amp;chi;" data-code="&amp;chi;">χ</button><button type="button" class="g" title="&amp;psi;" data-code="&amp;psi;">ψ</button><button type="button" class="g" title="&amp;omega;" data-code="&amp;omega;">ω</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Letras griegas mayúsculas<span class="count">9</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;Gamma;" data-code="&amp;Gamma;">Γ</button><button type="button" class="g" title="&amp;Delta;" data-code="&amp;Delta;">Δ</button><button type="button" class="g" title="&amp;Theta;" data-code="&amp;Theta;">Θ</button><button type="button" class="g" title="&amp;Lambda;" data-code="&amp;Lambda;">Λ</button><button type="button" class="g" title="&amp;Pi;" data-code="&amp;Pi;">Π</button><button type="button" class="g" title="&amp;Sigma;" data-code="&amp;Sigma;">Σ</button><button type="button" class="g" title="&amp;Phi;" data-code="&amp;Phi;">Φ</button><button type="button" class="g" title="&amp;Psi;" data-code="&amp;Psi;">Ψ</button><button type="button" class="g" title="&amp;Omega;" data-code="&amp;Omega;">Ω</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Operadores y relaciones matemáticas<span class="count">11</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;infin;" data-code="&amp;infin;">∞</button><button type="button" class="g" title="&amp;times;" data-code="&amp;times;">×</button><button type="button" class="g" title="&amp;sum;" data-code="&amp;sum;">∑</button><button type="button" class="g" title="&amp;prod;" data-code="&amp;prod;">∏</button><button type="button" class="g" title="&amp;ne;" data-code="&amp;ne;">≠</button><button type="button" class="g" title="&amp;asymp;" data-code="&amp;asymp;">≈</button><button type="button" class="g" title="&amp;cong;" data-code="&amp;cong;">≅</button><button type="button" class="g" title="&amp;sim;" data-code="&amp;sim;">∼</button><button type="button" class="g" title="&amp;equiv;" data-code="&amp;equiv;">≡</button><button type="button" class="g" title="&amp;le;" data-code="&amp;le;">≤</button><button type="button" class="g" title="&amp;ge;" data-code="&amp;ge;">≥</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Teoría de conjuntos<span class="count">13</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;isin;" data-code="&amp;isin;">∈</button><button type="button" class="g" title="&amp;notin;" data-code="&amp;notin;">∉</button><button type="button" class="g" title="&amp;cup;" data-code="&amp;cup;">∪</button><button type="button" class="g" title="&amp;cap;" data-code="&amp;cap;">∩</button><button type="button" class="g" title="&amp;xcup;" data-code="&amp;xcup;">⋃</button><button type="button" class="g" title="&amp;xcap;" data-code="&amp;xcap;">⋂</button><button type="button" class="g" title="&amp;sub;" data-code="&amp;sub;">⊂</button><button type="button" class="g" title="&amp;sube;" data-code="&amp;sube;">⊆</button><button type="button" class="g" title="&amp;nsub;" data-code="&amp;nsub;">⊄</button><button type="button" class="g" title="&amp;nsube;" data-code="&amp;nsube;">⊈</button><button type="button" class="g" title="&amp;empty;" data-code="&amp;empty;">∅</button><button type="button" class="g" title="&amp;exist;" data-code="&amp;exist;">∃</button><button type="button" class="g" title="&amp;forall;" data-code="&amp;forall;">∀</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Conjuntos numéricos<span class="count">4</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;Nopf;" data-code="&amp;Nopf;">ℕ</button><button type="button" class="g" title="&amp;Zopf;" data-code="&amp;Zopf;">ℤ</button><button type="button" class="g" title="&amp;Qopf;" data-code="&amp;Qopf;">ℚ</button><button type="button" class="g" title="&amp;Ropf;" data-code="&amp;Ropf;">ℝ</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Notas musicales<span class="count">2</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;#9834;" data-code="&amp;#9834;">♪</button><button type="button" class="g" title="&amp;#9835;" data-code="&amp;#9835;">♫</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Marcas de verificación y aspas<span class="count">5</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;check;" data-code="&amp;check;">✓</button><button type="button" class="g" title="&amp;#10004;" data-code="&amp;#10004;">✔</button><button type="button" class="g" title="&amp;#9745;" data-code="&amp;#9745;">☑</button><button type="button" class="g" title="&amp;#10005;" data-code="&amp;#10005;">✕</button><button type="button" class="g" title="&amp;#10006;" data-code="&amp;#10006;">✖</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Comillas y guiones<span class="count">9</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;laquo;" data-code="&amp;laquo;">«</button><button type="button" class="g" title="&amp;raquo;" data-code="&amp;raquo;">»</button><button type="button" class="g" title="&amp;lsaquo;" data-code="&amp;lsaquo;">‹</button><button type="button" class="g" title="&amp;rsaquo;" data-code="&amp;rsaquo;">›</button><button type="button" class="g" title="&amp;#10077;" data-code="&amp;#10077;">❝</button><button type="button" class="g" title="&amp;#10078;" data-code="&amp;#10078;">❞</button><button type="button" class="g" title="&amp;#10076;" data-code="&amp;#10076;">❜</button><button type="button" class="g" title="&amp;ndash;" data-code="&amp;ndash;">–</button><button type="button" class="g" title="&amp;mdash;" data-code="&amp;mdash;">—</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Signos editoriales y de puntuación<span class="count">5</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;sect;" data-code="&amp;sect;">§</button><button type="button" class="g" title="&amp;dagger;" data-code="&amp;dagger;">†</button><button type="button" class="g" title="&amp;Dagger;" data-code="&amp;Dagger;">‡</button><button type="button" class="g" title="&amp;#126;" data-code="&amp;#126;">~</button><button type="button" class="g" title="&amp;middot;" data-code="&amp;middot;">·</button></div>
+</section>
+<section class="grp">
+  <div class="eyebrow">Pictogramas y símbolos diversos<span class="count">9</span></div>
+  <div class="grid"><button type="button" class="g" title="&amp;#9786;" data-code="&amp;#9786;">☺</button><button type="button" class="g" title="&amp;#9788;" data-code="&amp;#9788;">☼</button><button type="button" class="g" title="&amp;#9993;" data-code="&amp;#9993;">✉</button><button type="button" class="g" title="&amp;#9733;" data-code="&amp;#9733;">★</button><button type="button" class="g" title="&amp;#9889;" data-code="&amp;#9889;">⚡</button><button type="button" class="g" title="&amp;#9901;" data-code="&amp;#9901;">⚭</button><button type="button" class="g" title="&amp;#10010;" data-code="&amp;#10010;">✚</button><button type="button" class="g" title="&amp;#8987;" data-code="&amp;#8987;">⌛</button><button type="button" class="g" title="&amp;#9749;" data-code="&amp;#9749;">☕</button></div>
+</section>
+  <footer>
+    109 símbolos &middot; agrupados por categoría.<br>
+    ¿Necesitas más? Consulta <a href="https://www.toptal.com/designers/htmlarrows/" target="_blank" rel="noopener">HTML Arrows (Toptal)</a>, un catálogo con búsqueda de símbolos, entidades y valores ASCII/HEX/Unicode.<br>
+    Selección hecha por <a href="https://github.com/vginer" target="_blank" rel="noopener">Vicent Giner Bosch</a> &middot; Última actualización: 4 de julio de 2026.
+  </footer>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var toast = document.getElementById('toast'), timer;
+  function show(msg){
+    toast.textContent = msg; toast.classList.add('show');
+    clearTimeout(timer); timer = setTimeout(function(){ toast.classList.remove('show'); }, 1500);
+  }
+  function copy(text){
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function(res, rej){
+      try{
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        var ok = document.execCommand('copy'); ta.remove();
+        ok ? res() : rej();
+      }catch(e){ rej(e); }
+    });
+  }
+  document.querySelectorAll('button.g').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      var wantCode = e.shiftKey;
+      var text = wantCode ? btn.dataset.code : btn.textContent.trim();
+      copy(text).then(function(){
+        show((wantCode ? '\u2713 Código copiado   ' : '\u2713 Copiado   ') + text);
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.classList.remove('copied'); }, 320);
+      }).catch(function(){
+        show('No se pudo copiar (usa Ctrl+C):  ' + text);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
